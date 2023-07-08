@@ -1,71 +1,50 @@
-// function displayCard({results}) {
-//     const [trivia] = results;
-//     let category = document.querySelector("h2")
-//     category.innerText = trivia.category
-//     let question = document.querySelector(".question")
-//     question.innerText = trivia.question
-//     let correctAnswer = document.querySelector(".hidden")
-//     correctAnswer.innerText = trivia["correct_answer"]
+function displayCard({ results }) {
+  for (let trivia of results) {
+    let card = document.createElement("article");
+    card.classList.add("card");
+    let level = document.createElement("small");
+    level.innerText = trivia.difficulty.toUpperCase();
+    let category = document.createElement("h2");
+    category.innerText = trivia.category;
 
-// }
+    let question = document.createElement("p");
+    question.innerText = trivia.question;
 
+    let button = document.createElement("button");
+    button.innerText = "Show Answer";
 
-// let trivia = fetch("https://opentdb.com/api.php?amount=10&category=27&difficulty=easy&type=boolean")
-// .then((response)=>response.json())
-// .then( (JSONresponse) => {
-//     console.log(JSONresponse.results)
-// })
-// .catch((err) =>{
-//     console.log(err)
-// })
+    let correctAnswer = document.createElement("p");
+    correctAnswer.classList.add("hidden");
+    correctAnswer.setAttribute("display", "none");
 
+    correctAnswer.innerText = trivia["correct_answer"];
 
+    button.addEventListener("click", () => {
+      correctAnswer.style.display = "block";
+      correctAnswer.innerText = trivia["correct_answer"];
+    });
 
+    card.append(level, category, question, button, correctAnswer);
 
+    document.querySelector("main").append(card);
 
-function displayCard({results}) {
-    
-    for(let trivia of results){
+    let small = document.querySelectorAll("small");
 
-  
-    let card = document.createElement("article")
-    card.classList.add("card")
-
-    let category = document.createElement("h2")
-    category.innerText = trivia.category
-
-    let question = document.createElement("p")
-    question.innerText = trivia.question
-
-    let button = document.createElement("button")
-    button.innerText = "Show Answer"
- 
-    let correctAnswer = document.createElement("p")
-    correctAnswer.classList.add("hidden")
-   correctAnswer.setAttribute("display", "none")
- 
-    correctAnswer.innerText = trivia["correct_answer"]
-
-
-    button.addEventListener("click",()=>{
-     
-       correctAnswer.style.display = "block"
-       correctAnswer.innerText = trivia["correct_answer"]
-
-    })
-  
-    card.append(category, question, button, correctAnswer)
-
-   document.querySelector("main").append(card)
-
+    for (let color of small) {
+      if (color.innerText === "EASY") {
+        card.style.border = "3px solid green";
+      } else if (color.innerText === "MEDIUM") {
+        card.style.border = "3px solid yellow";
+      } else {
+        card.style.border = "3px solid red";
+      }
+    }
+  }
 }
 
-}
-
-fetch("https://opentdb.com/api.php?amount=10&category=32&type=boolean")
-.then((response)=>response.json())
-.then((JSONresponse) => displayCard(JSONresponse))
-.catch((err) =>{
-    console.log(err)
-})
-
+fetch("https://opentdb.com/api.php?amount=10")
+  .then((response) => response.json())
+  .then((JSONresponse) => displayCard(JSONresponse))
+  .catch((err) => {
+    console.log(err);
+  });
