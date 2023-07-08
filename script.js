@@ -1,4 +1,4 @@
-fetch('https://opentdb.com/api.php?amount=10')
+fetch('https://opentdb.com/api.php?amount=10&encode=base64')
 	.then((response) => response.json())
 	.then((JSONresponse) => {
 		const form = document.querySelector('form');
@@ -33,9 +33,9 @@ function createCard(triviaQuestion) {
 	const btnShowAnswer = document.createElement('button');
 	const answerP = document.createElement('p');
 
-	h2.textContent = triviaQuestion.category;
-	questionP.textContent = triviaQuestion.question;
-	answerP.textContent = triviaQuestion.correct_answer;
+	h2.textContent = atob(triviaQuestion.category);
+	questionP.textContent = atob(triviaQuestion.question);
+	answerP.textContent = atob(triviaQuestion.correct_answer);
 	btnShowAnswer.textContent = 'Show Answer';
 
 	article.setAttribute('class', 'card');
@@ -56,4 +56,10 @@ function displayCards({ results }, createCard) {
 		main.append(createCard(question));
 	});
 }
-console.log(main);
+
+// Function by Shehroz Azam from https://linuxhint.com/decode-html-entities-javascript/
+function decode(str) {
+	let txt = new DOMParser().parseFromString(str, 'text/html');
+
+	return txt;
+}
