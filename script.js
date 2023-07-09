@@ -1,9 +1,16 @@
-fetch('https://opentdb.com/api.php?amount=10&encode=base64')
+const BASE_URL = 'https://opentdb.com/api.php?amount=10&encode=base64';
+
+fetch(BASE_URL)
 	.then((response) => response.json())
 	.then((JSONresponse) => {
 		const form = document.querySelector('form');
 		form.addEventListener('submit', (event) => {
 			event.preventDefault();
+
+			const select = document.querySelector('#difficulty-level');
+			select.addEventListener('click', (event) => {
+				console.log(event.target.value);
+			});
 
 			displayCards(JSONresponse, createCard);
 		});
@@ -82,4 +89,10 @@ main.addEventListener('click', (event) => {
 	) {
 		event.target.nextSibling.classList.add('hidden');
 	}
+});
+
+const btnReset = document.querySelector('#btn-reset');
+
+btnReset.addEventListener('click', () => {
+	document.location.reload();
 });

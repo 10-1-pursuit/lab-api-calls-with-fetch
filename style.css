@@ -71,3 +71,7 @@ button:hover {
 .hidden {
 	display: none;
 }
+
+form button {
+	margin-top: 15px;
+}
