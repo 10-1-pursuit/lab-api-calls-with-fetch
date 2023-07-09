@@ -30,14 +30,26 @@ function displayError(error) {
 function createCard(triviaQuestion) {
 	const article = document.createElement('article');
 	const h2 = document.createElement('h2');
+	const h4 = document.createElement('h4');
 	const questionP = document.createElement('p');
 	const btnShowAnswer = document.createElement('button');
 	const answerP = document.createElement('p');
 
 	h2.textContent = atob(triviaQuestion.category);
 	questionP.textContent = atob(triviaQuestion.question);
-	answerP.textContent = atob(triviaQuestion.correct_answer);
+	h4.textContent = atob(triviaQuestion.difficulty);
+	if (h4.textContent === 'easy') {
+		h4.style.color = 'green';
+	} else if (h4.textContent === 'medium') {
+		h4.style.color = 'goldenrod';
+		article.style.borderColor = 'goldenrod';
+	} else {
+		h4.style.color = 'red';
+		article.style.borderColor = 'red';
+	}
+
 	btnShowAnswer.textContent = 'Show Answer';
+	answerP.textContent = atob(triviaQuestion.correct_answer);
 
 	article.setAttribute('class', 'card');
 	questionP.classList.add('question-para');
@@ -45,7 +57,7 @@ function createCard(triviaQuestion) {
 
 	const newArticle = article;
 
-	newArticle.append(h2, questionP, btnShowAnswer, answerP);
+	newArticle.append(h2, questionP, h4, btnShowAnswer, answerP);
 
 	return newArticle;
 }

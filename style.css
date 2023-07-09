@@ -19,6 +19,11 @@ h6 {
 	margin: 0;
 }
 
+h4 {
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
 header {
 	background: #5c946e;
 	border-bottom: 3px solid #4f7d5d;
