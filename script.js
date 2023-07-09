@@ -12,6 +12,7 @@ fetch('https://opentdb.com/api.php?amount=10&encode=base64')
 	.catch(displayError);
 
 const main = document.querySelector('main');
+const cards = document.querySelectorAll('.card');
 
 function displayError(error) {
 	main.style.display = 'block';
@@ -57,9 +58,16 @@ function displayCards({ results }, createCard) {
 	});
 }
 
-// Function by Shehroz Azam from https://linuxhint.com/decode-html-entities-javascript/
-function decode(str) {
-	let txt = new DOMParser().parseFromString(str, 'text/html');
-
-	return txt;
-}
+main.addEventListener('click', (event) => {
+	if (
+		event.target.textContent === 'Show Answer' &&
+		event.target.nextSibling.classList.contains('hidden')
+	) {
+		event.target.nextSibling.classList.remove('hidden');
+	} else if (
+		event.target.textContent === 'Show Answer' &&
+		!event.target.nextSibling.classList.contains('hidden')
+	) {
+		event.target.nextSibling.classList.add('hidden');
+	}
+});
