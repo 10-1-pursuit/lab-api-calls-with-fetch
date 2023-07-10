@@ -1,25 +1,36 @@
-const BASE_URL = 'https://opentdb.com/api.php?amount=10&encode=base64';
+const BASE_URL = 'https://opentdb.com/api.php?amount=10';
+let difficulty_url;
 
-fetch(BASE_URL)
-	.then((response) => response.json())
-	.then((JSONresponse) => {
-		const form = document.querySelector('form');
-		form.addEventListener('submit', (event) => {
-			event.preventDefault();
+const form = document.querySelector('form');
+const select = document.querySelector('#difficulty-level');
 
-			const select = document.querySelector('#difficulty-level');
-			select.addEventListener('click', (event) => {
-				console.log(event.target.value);
-			});
+select.addEventListener('change', (event) => {
+	if (event.target.value === 'easy') {
+		difficulty_url = '&difficulty=easy';
+	} else if (event.target.value === 'medium') {
+		difficulty_url = '&difficulty=medium';
+	} else if (event.target.value === 'hard') {
+		difficulty_url = '&difficulty=hard';
+	}
+});
 
-			displayCards(JSONresponse, createCard);
-		});
-		console.log(JSONresponse.results);
-	})
-	.catch(displayError);
+form.addEventListener('submit', (event) => {
+	event.preventDefault();
+
+	fetch(`${BASE_URL}${difficulty_url}&encode=base64`)
+		.then((response) => {
+			return response.json();
+		})
+		.then((JSONresponse) => {
+			console.log(JSONresponse.results);
+			return displayCards(JSONresponse, createCard);
+		})
+		.catch(displayError);
+
+	form.reset();
+});
 
 const main = document.querySelector('main');
-const cards = document.querySelectorAll('.card');
 
 function displayError(error) {
 	main.style.display = 'block';
