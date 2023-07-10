@@ -1,24 +1,35 @@
-fetch("https://opentdb.com/api.php?amount=10")
-.then(response => response.json())
-.then((JSONresponse) => {
-  // console.log("json response", JSONresponse);
-  const fetchQuestion = JSONresponse;
-  console.log(fetchQuestion.results)
-  //do something aka make a function
-  const otherpromiseToWait2 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-  for (let ques in fetchQuestion){
-    if (true) {
-              resolve("I promise to wait");
-            }
-            {
-              reject("Error: Something went wrong");
-            }console.log(otherpromiseToWait2)
-   } }, 1000)
-  //change the dom
-  
-})
-.catch((err) => {
-  console.log("error", err);
+const showBtn = document.querySelector("button");
+showBtn.addEventListener("click", (event) => {
+  console.log(event.target);
+});
 
-})})
+const form = document.querySelector("form");
+form.id = "new-ques-holder";
+const selectMenu = document.createElement("select");
+for (let i = 1; i < selectMenu.length; i++) {
+  console.log(selectMenu[i]);
+}
+form.append(selectMenu);
+
+// const promiseToWait = new Promise((resolve, reject) => {
+//     const questions = fetch("https://opentdb.com/api.php?amount=10&category=26&difficulty=easy&type=boolean")
+
+// })
+// .then((response) => response.json()) //parse the resopnse
+//   .then((JSONresponse) => console.log(JSONresponse.results)); //get that info from the json
+
+// fetch(
+//   "https://opentdb.com/api.php?amount=10&category=26&difficulty=easy&type=boolean"
+// ).then((response) => console.log(response.json()))
+// .then()
+
+fetch("https://opentdb.com/api.php?amount=10&category=26&difficulty=easy&type=boolean").then(res => res.ok ? res : false).then(res => {
+    if (res) {
+        //res ok
+        return form;
+    } else {
+       //res not ok
+       return err;
+    }
+
+});
