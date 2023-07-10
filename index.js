@@ -40,7 +40,7 @@ function displayCard(cardsOfQues) {
         answers.style.display = "block";
     })
 
-    cardSection.append(h2, questions, answers, answrBtn);
+    mainSection.append(h2, questions, answers, answrBtn);
     mainSection.append(cardsOfQues);
 }
 
