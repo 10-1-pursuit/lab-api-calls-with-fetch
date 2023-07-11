@@ -19,7 +19,7 @@ Now that you can access data from JSON APIs, build a trivia application that mak
 ## Instructions
 
 Using the [Open Trivia Database](https://opentdb.com/api_config.php), update the form so that when it is submitted 10 new trivia questions appear on the page.
-
+https://opentdb.com/api.php?amount=10
 You may use the following HTML format for each trivia question. Replace the text with the relevant values from the API.
 
 ```html
