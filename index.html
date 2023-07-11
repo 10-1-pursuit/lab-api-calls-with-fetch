@@ -11,75 +11,80 @@
     <header>
       <h1>Trivia Questions</h1>
     </header>
-      <form id ="trivia-form">
-        <label for="amount">Number of Questions:</label>
-        <input type="number" id="amount" name="amount" min="1" max="10" required>
-        <label for="category">Category:</label>
-        <select id = "category" name="category">
-          </select>
-          <div id="trivia-container"></div>
-        <button type="submit">Get New Questions</button>
+    <section class="centered">
+      <form>
+        <button class="questions" type ="submit">Get New Questions</button>
       </form>
-    </section>
-    <main class="centered" id="trivia-container"></main>
       <!-- Your `.card` elements should show up here. -->
       <article class="card">
         <h2>CATEGORY</h2>
-        <p>QUESTION 1</p>
+        <p class="qstn">QUESTION 1</p>
+        <button type="submit" onclick="questionTrivia()">Show Answer</button>
+        <script type = "text/javascript">
+          function questionTrivia() {
+        const answerButton = document.querySelector("article.card button")
+        let articleCard = document.querySelector("article.card p.hidden")
+        const triviaArticle = document.querySelector("article.card")
+        answerButton.addEventListener("click", () => {
+          articleCard.className = "shown"
+          triviaArticle.append[articleCard]
+        })
+      }
+      questionTrivia()
+        </script> 
+        <p class="hidden">CORRECT ANSWER</p>
+      </article>
+      <article class="card">
+        <h2>CATEGORY</h2>
+        <p class="qstn">QUESTION 2</p>
         <button>Show Answer</button>
         <p class="hidden">CORRECT ANSWER</p>
       </article>
       <article class="card">
         <h2>CATEGORY</h2>
-        <p>QUESTION 2</p>
+        <p class="qstn">QUESTION 3</p>
         <button>Show Answer</button>
         <p class="hidden">CORRECT ANSWER</p>
       </article>
       <article class="card">
         <h2>CATEGORY</h2>
-        <p>QUESTION 3</p>
+        <p class="qstn">QUESTION 4</p>
         <button>Show Answer</button>
         <p class="hidden">CORRECT ANSWER</p>
       </article>
       <article class="card">
         <h2>CATEGORY</h2>
-        <p>QUESTION 4</p>
+        <p class="qstn">QUESTION 5</p>
         <button>Show Answer</button>
         <p class="hidden">CORRECT ANSWER</p>
       </article>
       <article class="card">
         <h2>CATEGORY</h2>
-        <p>QUESTION 5</p>
+        <p class="qstn">QUESTION 6</p>
         <button>Show Answer</button>
         <p class="hidden">CORRECT ANSWER</p>
       </article>
       <article class="card">
         <h2>CATEGORY</h2>
-        <p>QUESTION 6</p>
+        <p class="qstn">QUESTION 7</p>
         <button>Show Answer</button>
         <p class="hidden">CORRECT ANSWER</p>
       </article>
       <article class="card">
         <h2>CATEGORY</h2>
-        <p>QUESTION 7</p>
+        <p class="qstn">QUESTION 8</p>
         <button>Show Answer</button>
         <p class="hidden">CORRECT ANSWER</p>
       </article>
       <article class="card">
         <h2>CATEGORY</h2>
-        <p>QUESTION 8</p>
+        <p class="qstn">QUESTION 9</p>
         <button>Show Answer</button>
         <p class="hidden">CORRECT ANSWER</p>
       </article>
       <article class="card">
         <h2>CATEGORY</h2>
-        <p>QUESTION 9</p>
-        <button>Show Answer</button>
-        <p class="hidden">CORRECT ANSWER</p>
-      </article>
-      <article class="card">
-        <h2>CATEGORY</h2>
-        <p>QUESTION 10</p>
+        <p class="qstn">QUESTION 10</p>
         <button>Show Answer</button>
         <p class="hidden">CORRECT ANSWER</p>
       </article>
