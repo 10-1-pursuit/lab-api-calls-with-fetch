@@ -13,5 +13,5 @@ const articleCard = document.createElement('article')
 const h2Card = document.createElement('h2')
 articleCard.append(h2Card)
 const buttonCard = document.createElement('button')
-articleCard.
+articleCard.append(buttonCard)
 
