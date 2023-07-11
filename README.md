@@ -31,7 +31,7 @@ You may use the following HTML format for each trivia question. Replace the text
 </article>
 ```
 
-For the tests to pass, each question needs the `.card` class.
+~~For the tests to pass, each question needs the `.card` class.~~
 
 For each trivia question, then make it so that clicking on the button reveals the correct answer.
 

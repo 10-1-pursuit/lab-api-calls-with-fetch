@@ -18,43 +18,49 @@
 // .then((response) => response.json()) //parse the resopnse
 //   .then((JSONresponse) => console.log(JSONresponse.results)); //get that info from the json
 
-fetch("https://opentdb.com/api.php?amount=10&category=26&type=multiple"
+let myFetchedData = fetch(
+  "https://opentdb.com/api.php?amount=10&category=26&type=multiple"
   // "https://opentdb.com/api.php?amount=10"
   // &category=26&difficulty=easy&type=boolean
-).then((response) => response.json())
-.then((JSONResponse) => renderAPI(JSONResponse.results))
+)
+  .then((response) => response.json())
+  .then((JSONResponse) => renderAPI(JSONResponse.results));
 // .then((JSONResponse) => console.log(JSONResponse))
 
+const formsButton = document.querySelector("form button");
+console.log(formsButton);
+const main = document.querySelector("main");
 
-const main = document.querySelector('main')
+const articleForNewCard = document.createElement("article");
 
-const articleForNewCard = document.createElement('article')
+const h2ForNewCard = document.createElement("h2");
+articleForNewCard.append(h2ForNewCard);
 
-const h2ForNewCard = document.createElement('h2')
-articleForNewCard.append( h2ForNewCard)
+const pForNewCard = document.createElement("p");
+articleForNewCard.append(pForNewCard);
 
-const pForNewCard = document.createElement('p')
-articleForNewCard.append(pForNewCard)
+const buttonForNewCard = document.createElement("button");
+articleForNewCard.append(buttonForNewCard);
 
-const buttonForNewCard = document.createElement('button')
-articleForNewCard.append(buttonForNewCard)
+const p2ForNewCard = document.createElement("p");
+articleForNewCard.append(p2ForNewCard);
 
-const p2ForNewCard = document.createElement('p')
-articleForNewCard.append(p2ForNewCard)
+main.append(articleForNewCard);
+console.log("new card i made:", main);
 
-main.append(articleForNewCard)
+function renderAPI(arrOfQuesObj) {
+  //what do i want to happen here
+  //every time 'get New qUESTIONS' is pressed, 10 random new queestions SHOW up
+  //forEach question, CLICK event reveals ['correct-answer']
+  formsButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    console.log(event);
+  });
+}
 
 
-function renderAPI (arrOfQuesObj) {
-console.log(arrOfQuesObj[2])
-
-
-
- }
- 
 // console.log(arrOfQuesObj)
-//run it up w events and the  whole shabang 
-
+//run it up w events and the  whole shabang
 
 // fetch("https://opentdb.com/api.php?amount=10&category=26&difficulty=easy&type=boolean").then(res => res.ok ? res : false).then(res => {
 //     if (res) {
@@ -67,10 +73,8 @@ console.log(arrOfQuesObj[2])
 
 // });
 
-
 // const newFetch = fetch("https://opentdb.com/api.php?amount=10&category=26&difficulty=easy&type=boolean")
 // newFetch.results
-
 
 /**
  * 
