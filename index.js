@@ -199,21 +199,37 @@ console.log("CONNECTED")
 
 
 // fetch( "https://randomuser.me/api" )
+
+//      BROKEN SYNTAX FOR Category and Show Answer Button 
+
+// fetch("https://opentdb.com/api.php?amount=10")
+//     .then( (response)=> response.json() )
+//     .then( (JSONresponse)=>{ 
+//         console.log(JSONresponse)
+
+//         // const randomQuestions = JSONresponse
+//         const randomCategory1 = JSONresponse.results[0]
+
+
+//         const container = document.querySelector("main");
+// const matches = container.querySelectorAll("article.card> h2");
+
+//         // const h2AtTopOfPage = document.querySelectorAll("article.card")
+//             // h2AtTopOfPage
+//             matches.innerText = randomCategory1.category
+
+//             // h1AtTopOfPage.innerText = JSONresponse.results[0].name.first
+
+//     } )
+
+
 fetch("https://opentdb.com/api.php?amount=10")
     .then( (response)=> response.json() )
     .then( (JSONresponse)=>{ 
-        console.log(JSONresponse)
-
-        // const randomQuestions = JSONresponse
-        const randomCategory1 = JSONresponse.results[0]
-
-
-        const h2AtTopOfPage = document.querySelector("h2")
+            const randomCategory1 = JSONresponse.results[0]
+            const h2AtTopOfPage = document.querySelector("h2")
             h2AtTopOfPage.innerText = randomCategory1.category
-
-            // h1AtTopOfPage.innerText = JSONresponse.results[0].name.first
-
-    } )
+    })
 
 
     fetch("https://opentdb.com/api.php?amount=10")
@@ -233,6 +249,62 @@ fetch("https://opentdb.com/api.php?amount=10")
 
 
 
+
+
+// setTimeout(() => {
+//     console.log("I should happen first");
+//   }, 1000); // 1000 = 1sec 
+
+    // fetch("https://opentdb.com/api.php?amount=10")
+    // .then( (response)=> response.json() )
+    // .then( (JSONresponse)=>{ 
+    //     console.log(JSONresponse)
+
+        // const randomAnswer1 = JSONresponse.results[0]
+
+
+        const newQuestionsButton = document.querySelector("button")
+        newQuestionsButton.addEventListener("click", () => {
+            fetch("https://opentdb.com/api.php?amount=10")
+
+ 
+            // instructorImg= !instructorImg
+            // firstShowAnswerButton.innerText = randomAnswer1.correct_answer
+
+        // console.log(randomAnswer1.correct_answer)
+
+
+// const promiseToWait = new Promise((resolve, reject) => {
+
+    // setTimeout( ()=>{
+
+        // if (true) {
+//             resolve("I promise to wait");  // true
+//         } 
+//         {
+//             reject("Something went wrong");
+//         }
+          
+//     } )
+
+// });
+
+// console.log(promiseToWait)
+
+
+// promiseToWait.then( (response) => {
+    // console.log("Best Case/ resolve: " , response);
+// } )
+// promiseToWait.then( () => {} 
+
+
+            // h1AtTopOfPage.innerText = JSONresponse.results[0].name.first
+
+
+
+
+
+    } )
 
 
     // .then( (JSONresponse)=> console.log(JSONresponse.results[0]) )
