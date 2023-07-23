@@ -204,11 +204,12 @@ fetch("https://opentdb.com/api.php?amount=10")
     .then( (JSONresponse)=>{ 
         console.log(JSONresponse)
 
-        const randomQuestions = JSONresponse.results[0]
+        // const randomQuestions = JSONresponse
+        const randomCategory1 = JSONresponse.results[0]
 
 
         const h2AtTopOfPage = document.querySelector("h2")
-            h2AtTopOfPage.innerText = randomQuestions.category
+            h2AtTopOfPage.innerText = randomCategory1.category
 
             // h1AtTopOfPage.innerText = JSONresponse.results[0].name.first
 
@@ -220,11 +221,11 @@ fetch("https://opentdb.com/api.php?amount=10")
     .then( (JSONresponse)=>{ 
         console.log(JSONresponse)
 
-        const randomQuestions = JSONresponse.results[0]
+        const randomQuestion1 = JSONresponse.results[0]
 
 
         const pTagForQuestion = document.querySelector("p")
-            h2AtTopOfPage.innerText = randomQuestions.category
+        pTagForQuestion.innerText = randomQuestion1.question
 
             // h1AtTopOfPage.innerText = JSONresponse.results[0].name.first
 
