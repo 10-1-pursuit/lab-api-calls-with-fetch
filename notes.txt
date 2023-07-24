@@ -1,0 +1,5 @@
+- open api - browse
+
+.card - each question ? 
+
+10 new questions on page top every submitted
