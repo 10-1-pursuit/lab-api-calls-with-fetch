@@ -264,9 +264,9 @@ fetch("https://opentdb.com/api.php?amount=10")
 
 
         const newQuestionsButton = document.querySelector("button")
-        newQuestionsButton.addEventListener("click", () => {
+       newQuestionns= newQuestionsButton.addEventListener("click", () => {
             fetch("https://opentdb.com/api.php?amount=10")
-
+main.append(newQuestionns)
  
             // instructorImg= !instructorImg
             // firstShowAnswerButton.innerText = randomAnswer1.correct_answer
@@ -306,6 +306,15 @@ fetch("https://opentdb.com/api.php?amount=10")
 
     } )
 
+
+    //  ADD CLICK EVENT LISTENER FOR SHOW ANSWER BUTTON 
+    // CHANGE INNER TEXT FOR P TAG W/ CLASS OF ".HIDDEN"
+    const showAnswerButtonContainer = document.querySelector("article.card")
+    const showAnswerButton= showAnswerButtonContainer.querySelectorAll("button")
+    showAnswersClick=showAnswerButton.addEventListener("click", () => {
+
+    })
+    // randomAnswer1.correct_answer
 
     // .then( (JSONresponse)=> console.log(JSONresponse.results[0]) )
     // .then( (JSONresponse)=> console.log(JSONresponse.results) )
