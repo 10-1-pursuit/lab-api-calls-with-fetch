@@ -255,17 +255,18 @@ fetch("https://opentdb.com/api.php?amount=10")
 //     console.log("I should happen first");
 //   }, 1000); // 1000 = 1sec 
 
-    // fetch("https://opentdb.com/api.php?amount=10")
-    // .then( (response)=> response.json() )
-    // .then( (JSONresponse)=>{ 
-    //     console.log(JSONresponse)
+    fetch("https://opentdb.com/api.php?amount=10")
+    .then( (response)=> response.json() )
+    .then( (JSONresponse)=>{ 
+        console.log(JSONresponse)
 
-        // const randomAnswer1 = JSONresponse.results[0]
+        const randomAnswer1 = JSONresponse.results[0]
 
 
         const newQuestionsButton = document.querySelector("button")
-       newQuestionns= newQuestionsButton.addEventListener("click", () => {
+      let newQuestionns= newQuestionsButton.addEventListener("click", () => {
             fetch("https://opentdb.com/api.php?amount=10")
+            
 main.append(newQuestionns)
  
             // instructorImg= !instructorImg
@@ -285,7 +286,7 @@ main.append(newQuestionns)
 //             reject("Something went wrong");
 //         }
           
-//     } )
+    } )
 
 // });
 
@@ -311,7 +312,10 @@ main.append(newQuestionns)
     // CHANGE INNER TEXT FOR P TAG W/ CLASS OF ".HIDDEN"
     const showAnswerButtonContainer = document.querySelector("article.card")
     const showAnswerButton= showAnswerButtonContainer.querySelectorAll("button")
-    showAnswersClick=showAnswerButton.addEventListener("click", () => {
+    showAnswersClick=showAnswerButton.addEventListener("click", () => { 
+let correctAnswer= document.querySelector(".hidden")
+correctAnswer.innerText =  randomAnswer1.correct_answer
+
 
     })
     // randomAnswer1.correct_answer
